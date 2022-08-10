@@ -1,6 +1,5 @@
 package Blueprints;
 
-import Utilities.Elements;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,26 +7,26 @@ import org.openqa.selenium.support.PageFactory;
 
 public class ProductSearch {
     WebDriver driver;
-    @FindBy(xpath = Elements.closePopUp)
+    @FindBy(xpath = "//button[@tabindex='0']")
     private WebElement closePopUp;
 
-    @FindBy(xpath = Elements.btnDog)
+    @FindBy(xpath = "//div[@class='navBorder'][normalize-space()='Dog']")
     private WebElement btnDog;
 
-    @FindBy(xpath = Elements.btnFood)
+    @FindBy(xpath = "//div[text()='Food']")
     private WebElement btnFood;
 
-    @FindBy(xpath = Elements.barSearch)
+    @FindBy(xpath = "//input[@placeholder='Search for products, brands and more']")
     private WebElement barSearch;
 
-    @FindBy(css = Elements.btnSearch)
+    @FindBy(css = ".NavSearchBar_searchIconDiv__Vr5NB")
     private WebElement btnSearch;
 
-    @FindBy(xpath = Elements.clickBroncoSalmon)
+    @FindBy(xpath = "//div[normalize-space()='Bronco Jerky Salmon Dog Treat 70g']")
     private WebElement clickBroncoSalmon;
 
     public ProductSearch(WebDriver driver) {
-        this.driver = this.driver;
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 
