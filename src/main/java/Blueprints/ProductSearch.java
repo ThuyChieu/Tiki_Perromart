@@ -33,8 +33,8 @@ public class ProductSearch {
 
     public void foodSearchProcess() throws InterruptedException {
         closePopUp.click();
-        btnFood.click();
         btnDog.click();
+        btnFood.click();
     }
 
     public void typoSearch() throws InterruptedException {

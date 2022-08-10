@@ -2,7 +2,7 @@ package Utilities;
 
 public class Elements {
     public static final String closePopUp = "//button[@tabindex='0']";
-    public static final String btnDog = "/div[@class='navBorder'][normalize-space()='Dog']";
+    public static final String btnDog = "//div[@class='navBorder'][normalize-space()='Dog']";
     public static final String btnFood = "//div[text()='Food']";
     public static final String barSearch = "//input[@placeholder='Search for products, brands and more']";
     public static final String btnSearch = ".NavSearchBar_searchIconDiv__Vr5NB";

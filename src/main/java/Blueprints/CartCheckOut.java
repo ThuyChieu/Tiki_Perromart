@@ -25,7 +25,7 @@ public class CartCheckOut {
         PageFactory.initElements(driver,this);
     }
     public void productDetail(){
-        closeNotification.click();
+//        closeNotification.click();
         addToCart.click();
         shoppingCart.click();
     }
