@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ThuyChieu_Perromart" />
+        <module name="Tiki_Perromart" />
       </profile>
     </annotationProcessing>
   </component>

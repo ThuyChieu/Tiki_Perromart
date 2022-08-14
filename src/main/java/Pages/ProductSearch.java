@@ -1,4 +1,4 @@
-package Blueprints;
+package Pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,19 +30,25 @@ public class ProductSearch {
         PageFactory.initElements(driver, this);
     }
 
-    public void foodSearchProcess() throws InterruptedException {
+    public ProductSearch foodSearchProcess() throws InterruptedException {
         closePopUp.click();
         btnDog.click();
         btnFood.click();
+
+        return this;
     }
 
-    public void typoSearch() throws InterruptedException {
-        barSearch.sendKeys("Bronco Salmon");
+    public ProductSearch typoSearch(String value) throws InterruptedException {
+        barSearch.sendKeys(value);
         btnSearch.click();
         Thread.sleep(2500);
+
+        return this;
     }
 
-    public void chooseProduct() throws InterruptedException {
+    public ProductSearch chooseProduct() throws InterruptedException {
         clickBroncoSalmon.click();
+
+        return this;
     }
 }

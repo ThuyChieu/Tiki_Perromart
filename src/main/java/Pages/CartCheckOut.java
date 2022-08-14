@@ -1,16 +1,13 @@
-package Blueprints;
+package Pages;
 
+import Config.Config;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class CartCheckOut {
-    WebDriverWait wait;
-    WebDriver driver;
-
+public class CartCheckOut extends BasePage {
     @FindBy(xpath = "//span[text()='Add to cart']")
     private WebElement addToCart;
 
@@ -21,13 +18,15 @@ public class CartCheckOut {
     private WebElement shoppingCart;
 
     public CartCheckOut(WebDriver driver) {
-        this.driver = driver;
-        PageFactory.initElements(driver, this);
+        initialize(driver);
+        this.driver.get(Config.pageUrl);
     }
 
-    public void productDetail() {
+    public CartCheckOut getProductDetail() {
         addToCart.click();
         shoppingCart.click();
+
+        return this;
     }
 
     public int verifyProductName(String itemName) {
