@@ -23,9 +23,8 @@ public class CartCheckOut extends BasePage {
     }
 
     public CartCheckOut getProductDetail() {
-        addToCart.click();
-        shoppingCart.click();
-
+        clickElement(addToCart);
+        clickElement(shoppingCart);
         return this;
     }
 

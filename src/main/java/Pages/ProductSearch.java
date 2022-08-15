@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class ProductSearch {
+public class ProductSearch extends BasePage {
     WebDriver driver;
     @FindBy(xpath = "//button[@tabindex='0']")
     private WebElement closePopUp;
@@ -30,25 +30,16 @@ public class ProductSearch {
         PageFactory.initElements(driver, this);
     }
 
-    public ProductSearch foodSearchProcess() throws InterruptedException {
-        closePopUp.click();
-        btnDog.click();
-        btnFood.click();
-
+    public ProductSearch foodSearchProcess() {
+        clickElement(closePopUp);
+        clickElement(btnDog);
+        clickElement(btnFood);
         return this;
     }
 
-    public ProductSearch typoSearch(String value) throws InterruptedException {
-        barSearch.sendKeys(value);
-        btnSearch.click();
-        Thread.sleep(2500);
-
-        return this;
-    }
-
-    public ProductSearch chooseProduct() throws InterruptedException {
-        clickBroncoSalmon.click();
-
+    public ProductSearch typoSearch(String productName) {
+        inputText(barSearch, productName);
+        clickElement(btnSearch);
         return this;
     }
 }

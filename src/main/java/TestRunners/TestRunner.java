@@ -1,10 +1,15 @@
 package TestRunners;
 
-import Pages.ProductSearch;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
+@RunWith(Cucumber.class)
+@CucumberOptions(features = {"src/main/resources"}, glue = {"StepDefinitions"}, monochrome = true)
 
-public class TestRunner extends BaseTest {
+public class TestRunner {
+
 //    @Test(groups = "cart",description = "Select Brocon Salmon")
 //    public void chooseBroconSalmon() throws InterruptedException{
 ////        driver.get("https://perromart.com.sg/");
@@ -17,20 +22,6 @@ public class TestRunner extends BaseTest {
 //        //Verify
 //        Assert.assertEquals(cartCheckOut.verifyProductName("Bronco Jerky Salmon Dog Treat 70g"),1);
 //    }
-    private ProductSearch productSearchPage ;
-
-    @Override
-    public void initialize() {
-        productSearchPage = new ProductSearch(getDriver());
-    }
-
-    @Test(testName = "test-demo",description = "Select Brocon Salmon")
-    public void test() throws Exception {
-        productSearchPage
-                .foodSearchProcess()
-                .typoSearch("Brocon Salmon")
-                .chooseProduct();
-    }
-
-
 }
+
+
