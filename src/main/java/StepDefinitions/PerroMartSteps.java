@@ -1,7 +1,9 @@
 package StepDefinitions;
 
+import Pages.CartCheckOut;
 import Pages.ProductSearch;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
@@ -23,7 +25,9 @@ public class PerroMartSteps {
     }
     @When("I click product name {string}")
     public void chooseProduct(){
-
+        CartCheckOut cartCheckOut = new CartCheckOut(driver);
+//        cartCheckOut.getProductDetail();
     }
+    @Then("I verify that {string} have been added with correct ")
 
 }

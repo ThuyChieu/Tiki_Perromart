@@ -1,10 +1,11 @@
 package Pages;
 
+import Config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class Shipping {
+public class Shipping extends BasePage {
     WebDriver driver;
 
     @FindBy(xpath = ".CartItems_PlaceOrder__clRYj")
@@ -26,6 +27,16 @@ public class Shipping {
     @FindBy(xpath = ".step__footer__continue-btn")
     private WebElement btnContinueShopping;
 
+    public Shipping(WebDriver driver) {
+        initialize(driver);
+        this.driver.get(Config.pageUrl);
+    }
+    public Shipping inputInfor(String email, String firstName, String lastName, String address, String apartment, String postalCode, String phone){
+        inputText(txtAddress,email);
+        inputText(txtFirstName, firstName);
+        inputText(txtLastName, lastName);
+
+    }
 
 
 }
