@@ -1,5 +1,7 @@
 package StepDefinitions;
 
+import Config.Config;
+import Managers.DriverManager;
 import Pages.CartCheckOut;
 import Pages.ProductCategory;
 import Pages.ProductSearch;
@@ -10,9 +12,15 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
 public class PerroMartSteps {
-    WebDriver driver;
+    WebDriver driver = null;
     @Given("I go to {string} website")
     public void openHomePage(String URL){
+        try {
+            Config.setup();
+            driver = DriverManager.getInstant();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         driver.get(URL);
     }
     @When("I navigate to page food")

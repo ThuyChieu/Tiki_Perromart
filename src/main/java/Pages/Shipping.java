@@ -33,7 +33,7 @@ public class Shipping extends BasePage {
 
 
     public Shipping(WebDriver driver) {
-        initialize(driver);
+        super(driver);
         this.driver.get(Config.pageUrl);
     }
     public Shipping inputInfor(String email, String firstName, String lastName, String address, String apartment, String postalCode, String phone){

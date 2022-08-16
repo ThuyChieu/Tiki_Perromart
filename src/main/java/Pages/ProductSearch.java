@@ -26,7 +26,7 @@ public class ProductSearch extends BasePage {
     private WebElement clickBroncoSalmon;
 
     public ProductSearch(WebDriver driver) {
-        this.driver = driver;
+        super(driver);
         PageFactory.initElements(driver, this);
     }
 

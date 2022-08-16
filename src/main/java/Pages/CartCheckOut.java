@@ -20,7 +20,7 @@ public class CartCheckOut extends BasePage {
     private WebElement btnCheckOut;
 
     public CartCheckOut(WebDriver driver) {
-        initialize(driver);
+        super(driver);
         this.driver.get(Config.pageUrl);
     }
 
