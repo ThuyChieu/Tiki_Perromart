@@ -16,6 +16,8 @@ public class CartCheckOut extends BasePage {
 
     @FindBy(xpath = "//div[@class='px-3 py-3 p-xxl-3 d-flex align-items-center position-relative']//div[@class='Nav_notificationIcon__PO8_E']")
     private WebElement shoppingCart;
+    @FindBy(xpath = ".CartItems_PlaceOrder__clRYj")
+    private WebElement btnCheckOut;
 
     public CartCheckOut(WebDriver driver) {
         initialize(driver);
@@ -25,6 +27,10 @@ public class CartCheckOut extends BasePage {
     public CartCheckOut getProductDetail() {
         clickElement(addToCart);
         clickElement(shoppingCart);
+        return this;
+    }
+    public CartCheckOut cartCheckOut(){
+        clickElement(btnCheckOut);
         return this;
     }
 

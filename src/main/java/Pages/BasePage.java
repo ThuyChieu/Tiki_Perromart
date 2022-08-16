@@ -1,5 +1,6 @@
 package Pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -33,5 +34,8 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.visibilityOf(element));
         element.clear();
         element.sendKeys(value);
+    }
+    public By productXPath(String value) {
+        return (By.xpath("//div[text()='" + value + "']"));
     }
 }

@@ -4,12 +4,11 @@ import Config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 public class Shipping extends BasePage {
     WebDriver driver;
 
-    @FindBy(xpath = ".CartItems_PlaceOrder__clRYj")
-    private WebElement btnCheckOut;
     @FindBy(xpath = "//input[@id='checkout_email']")
     private WebElement txtEmail;
     @FindBy(xpath = "//input[@id='checkout_shipping_address_first_name']")
@@ -27,6 +26,12 @@ public class Shipping extends BasePage {
     @FindBy(xpath = ".step__footer__continue-btn")
     private WebElement btnContinueShopping;
 
+    @FindBy(xpath = "//bdo[@dir='ltr']")
+    private WebElement emailValue;
+    @FindBy(xpath = "//address[@class='address address--tight']")
+    private WebElement addressValue;
+
+
     public Shipping(WebDriver driver) {
         initialize(driver);
         this.driver.get(Config.pageUrl);
@@ -35,8 +40,16 @@ public class Shipping extends BasePage {
         inputText(txtAddress,email);
         inputText(txtFirstName, firstName);
         inputText(txtLastName, lastName);
-
+        inputText(txtAddress, address);
+        inputText(txtApartment, apartment);
+        inputText(txtPostalCode, postalCode);
+        inputText(txtPhone, phone);
+        clickElement(btnContinueShopping);
+        return this;
     }
-
-
+    public Shipping verifyInfor(String email, String shipTo){
+        Assert.assertEquals(emailValue.getText(),email);
+        Assert.assertEquals(addressValue.getText(),shipTo);
+        return this;
+    }
 }

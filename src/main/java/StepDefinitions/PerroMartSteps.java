@@ -1,7 +1,9 @@
 package StepDefinitions;
 
 import Pages.CartCheckOut;
+import Pages.ProductCategory;
 import Pages.ProductSearch;
+import Pages.Shipping;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -24,10 +26,33 @@ public class PerroMartSteps {
         productSearch.typoSearch(productName);
     }
     @When("I click product name {string}")
-    public void chooseProduct(){
-        CartCheckOut cartCheckOut = new CartCheckOut(driver);
-//        cartCheckOut.getProductDetail();
+    public void chooseProduct(String productName){
+        ProductCategory productCategory = new ProductCategory(driver);
+        productCategory.chooseFood(productName);
     }
-    @Then("I verify that {string} have been added with correct ")
-
+    @When("I add to cart and click cart button")
+    public void addToCart(){
+        CartCheckOut cartCheckOut = new CartCheckOut(driver);
+        cartCheckOut.getProductDetail();
+    }
+    @Then("I verify that product have been added with correct {string} name")
+    public void verifyCart(String productName){
+        CartCheckOut cartCheckOut = new CartCheckOut(driver);
+        cartCheckOut.verifyProductName(productName);
+    }
+    @When("I click check out button")
+    public void checkOut(){
+        CartCheckOut cartCheckOut = new CartCheckOut(driver);
+        cartCheckOut.cartCheckOut();
+    }
+    @When("I input {string}, {string}, {string}, {string}, {string}, {string}, {string} and click continue to shipping button")
+    public void inputInfor(String email, String firstName, String lastName, String address, String apartment, String postalCode, String phone){
+        Shipping shipping = new Shipping(driver);
+        shipping.inputInfor(email, firstName, lastName, address, apartment, postalCode, phone);
+    }
+    @Then("I verify that {string}, {string} is correct")
+    public void verifyInfor(String email, String shipTo){
+        Shipping shipping = new Shipping(driver);
+        shipping.verifyInfor(email, shipTo);
+    }
 }
