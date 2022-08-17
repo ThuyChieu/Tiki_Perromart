@@ -34,7 +34,7 @@ public class PerroMartSteps {
         productSearch.typoSearch(productName);
     }
     @When("I click product name {string}")
-    public void chooseProduct(String productName){
+    public void clickProduct(String productName){
         ProductCategory productCategory = new ProductCategory(driver);
         productCategory.chooseFood(productName);
     }

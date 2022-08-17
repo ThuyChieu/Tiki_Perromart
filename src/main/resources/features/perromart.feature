@@ -1,6 +1,6 @@
 Feature: PerroMart Demo
 
-  Scenario: Check out cart
+  Scenario Outline: Check out cart
     Given I go to "https://perromart.com.sg/" website
     When I navigate to page food
     And I send keyword "<searchProduct>" to search engine and click search button
@@ -9,13 +9,11 @@ Feature: PerroMart Demo
     Then I verify that product have been added with correct "<productName>" name
     Examples:
       | searchProduct | productName
-      | Bronco Salmon | Bronco Salmon Olio Dog Wet Food 390g
-#      | Aatas         | Aatas Cat Fresh Beads Deodorizer Baby Powder 450g
+      | Bronco Salmon | Bronco Jerky Salmon Dog Treat 70g
 
-
-  Scenario: Check out information
+  Scenario Outline: Check out information
     Given I go to "https://perromart.com.sg/" website
-    And I send keyword "<searchProduct>" to search engine and click search button
+    And I send keyword "<productName>" to search engine and click search button
     And I click product name "<productName>"
     And I add to cart and click cart button
     And I click check out button

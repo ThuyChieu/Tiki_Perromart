@@ -8,8 +8,8 @@ public class ProductCategory extends BasePage{
         super(driver);
         PageFactory.initElements(driver, this);
     }
-    public ProductCategory chooseFood(String itemName){
-        clickElement(driver.findElement(productXPath(itemName)));
+    public ProductCategory chooseFood(String productName){
+        clickElement(driver.findElement(productXPath(productName)));
         return this;
     }
 }
