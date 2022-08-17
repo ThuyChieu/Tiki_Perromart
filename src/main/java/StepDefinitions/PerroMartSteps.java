@@ -12,7 +12,7 @@ import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 
 public class PerroMartSteps {
-    WebDriver driver = null;
+    WebDriver driver;
     @Given("I go to {string} website")
     public void openHomePage(String URL){
         try {
